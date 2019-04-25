@@ -32,9 +32,7 @@ The ever growing list of supported projects is now maintained at [https://nodema
 
 Many masternode crypto currencies only have incomplete or even non-existing instructions available how to setup a masternode from source.
 
-This project started as handy bash script to setup my $PIVX masternodes in 2016 when there was almost zero documentation and anything that existed was either $DASH specific, sucked and in most cases both. For that reason, i started to work on a not-so-sucking way to install a lot of different masternodes with next to none manual intervention.
-
-If you are not already aware, visit the project site and join the slack. The website at [https://pivx.org/](https://pivx.org/) is also well worth a visit.
+This project started as handy bash script to setup my $Unify masternodes in 2016 when there was almost zero documentation and anything that existed was either $DASH specific, sucked and in most cases both. For that reason, i started to work on a not-so-sucking way to install a lot of different masternodes with next to none manual intervention.
 
 Many people use binaries, end of with an insecure configuration or fail completely. This is obviously bad for the stability of the individual network.
 
@@ -56,47 +54,47 @@ Comparing with building from source manually, you will benefit from using this s
 SSH to your VPS and clone the Github repository:
 
 ```bash
-git clone https://github.com/masternodes/vps.git && cd vps
+git clone https://github.com/CryptoNeverSleeps/vps.git && cd vps
 ```
 
 Install & configure your desired master node with options:
 
 ```bash
-./install.sh -p pivx
+./install.sh -p pulse
 ```
 
 ## Examples for typical script invocation
 
 These are only a couple of examples for typical setups. Check my [easy step-by-step guide for [vultr](/docs/masternode_vps.md) that will guide you through the hardest parts.
 
-**Install & configure 4 PIVX masternodes:**
+**Install & configure 4 Pulse masternodes:**
 
 ```bash
-./install.sh -p pivx -c 4
+./install.sh -p pulse -c 4
 ```
 
-**Update daemon of previously installed PIVX masternodes:**
+**Update daemon of previously installed Pulse masternodes:**
 
 ```bash
-./install.sh -p pivx -u
+./install.sh -p pulse -u
 ```
 
-**Install 6 PIVX masternodes with the git release tag "tags/v3.0.5.1"**
+**Install 6 Pulse masternodes with the git release tag "tags/v1.2.0.1"**
 
 ```bash
-./install.sh -p pivx -c 6 -r "tags/v3.0.5.1"
+./install.sh -p pulse -c 6 -r "tags/v1.2.0.1"
 ```
 
-**Wipe all PIVX masternode data:**
+**Wipe all Pulse masternode data:**
 
 ```bash
-./install.sh -p pivx -w
+./install.sh -p pulse -w
 ```
 
-**Install 2 PIVX masternodes and configure sentinel monitoring:**
+**Install 2 Pulse masternodes and configure sentinel monitoring:**
 
 ```bash
-./install.sh -p pivx -c 2 -s
+./install.sh -p pulse -c 2 -s
 ```
 
 ## Options
@@ -120,24 +118,26 @@ The _install.sh_ script support the following parameters:
 If you want to check the status of your masternode, the best way is currently running the cli e.g. for $MUE via
 
 ```
-/usr/local/bin/mue-cli -conf=/etc/masternodes/mue_n1.conf getinfo
+/usr/local/bin/pulse-cli -conf=/etc/masternodes/pulse_n1.conf getinfo
 
 {
-  "version": 1000302,
-  "protocolversion": 70701,
+  "version": 1000200,
+  "protocolversion": 70914,
+  "services": "NETWORK/BLOOM/",
   "walletversion": 61000,
   "balance": 0.00000000,
-  "privatesend_balance": 0.00000000,
-  "blocks": 209481,
+  "blocks": 40950,
   "timeoffset": 0,
-  "connections": 5,
+  "connections": 9,
   "proxy": "",
-  "difficulty": 42882.54964804553,
+  "difficulty": 3354.021567750052,
   "testnet": false,
-  "keypoololdest": 1511380627,
+  "moneysupply": 3158385.18053675,
+  "keypoololdest": 1554425824,
   "keypoolsize": 1001,
   "paytxfee": 0.00000000,
   "relayfee": 0.00010000,
+  "staking status": "Staking Not Active",
   "errors": ""
 }
 ```
@@ -162,12 +162,12 @@ The management script release will follow within the next couple of days.
 
 | command                               | description                                  |
 | :------------------------------------ | -------------------------------------------- |
-| nodemaster start pivx (all\|number)   | start all or a specific pivx masternode(s)   |
-| nodemaster restart pivx (all\|number) | stop all or a specific pivx masternode(s)    |
-| nodemaster stop pivx (all\|number)    | restart all or a specific pivx masternode(s) |
-| nodemaster cleanup pivx (all\|number) | delete chain data for all pivx masternodes   |
-| nodemaster status pivx (all\|number)  | systemd process status for a pivx masternode |
-| nodemaster tail pivx (all\|number)    | tail debug logs for a pivx masternode        |
+| nodemaster start ufy (all\|number)   | start all or a specific ufy masternode(s)   |
+| nodemaster restart ufy (all\|number) | stop all or a specific ufy masternode(s)    |
+| nodemaster stop ufy (all\|number)    | restart all or a specific ufy masternode(s) |
+| nodemaster cleanup ufy (all\|number) | delete chain data for all ufy masternodes   |
+| nodemaster status ufy (all\|number)  | systemd process status for a ufy masternode |
+| nodemaster tail ufy (all\|number)    | tail debug logs for a ufy masternode        |
 
 # Todo
 
